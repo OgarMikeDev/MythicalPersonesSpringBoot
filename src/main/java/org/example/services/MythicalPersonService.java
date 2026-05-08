@@ -12,7 +12,7 @@ import java.util.Map;
 public class MythicalPersonService {
     private List<MythicalPerson> mythicalPersonList = new ArrayList<>();
 
-    public void addMythicalPerson(Map<String, String> map) throws Exception {
+    public void addMythicalPerson(Map<String, Object> map) throws Exception {
         /*
         TODO
          Для возможности преобразования

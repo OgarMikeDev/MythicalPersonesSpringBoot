@@ -3,6 +3,15 @@ package org.example.model;
 public class MythicalPerson extends Entity {
     private boolean isgod; //TODO Является ли Богом?
     private String superpower; //TODO Описание сверхспособности
+    private MythicalAnimal mythicalanimal;
+
+    public MythicalAnimal getMythicalanimal() {
+        return mythicalanimal;
+    }
+
+    public void setMythicalanimal(MythicalAnimal mythicalanimal) {
+        this.mythicalanimal = mythicalanimal;
+    }
 
     public boolean isIsgod() {
         return isgod;
@@ -23,8 +32,9 @@ public class MythicalPerson extends Entity {
     @Override
     public String toString() {
         return "Name: " + getName() +
-                "Age: " + getAge() +
-                "Is God: " + isIsgod() +
-                "Super power: " + getSuperpower();
+                "\nAge: " + getAge() +
+                "\nIs God: " + isIsgod() +
+                "\nSuper power: " + getSuperpower() +
+                "\nMythical Animal: " + getMythicalanimal();
     }
 }

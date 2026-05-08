@@ -19,7 +19,7 @@ public class EntityRestController {
 
     //TODO http://localhost:8080/save_mythical_person
     @PostMapping("/save_mythical_person")
-    public ResponseEntity.BodyBuilder save(@RequestBody Map<String, String> map) {
+    public ResponseEntity.BodyBuilder save(@RequestBody Map<String, Object> map) {
         try {
             mythicalPersonService.addMythicalPerson(map);
             return ResponseEntity.status(HttpStatus.OK);
