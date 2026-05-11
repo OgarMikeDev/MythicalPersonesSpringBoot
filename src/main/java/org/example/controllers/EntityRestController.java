@@ -1,5 +1,7 @@
 package org.example.controllers;
 
+import org.example.dto.MythicalPersonDto;
+import org.example.model.MythicalPerson;
 import org.example.services.MythicalPersonService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,14 +34,24 @@ public class EntityRestController {
              }
          }
      */
-    //TODO http://localhost:8080/save_mythical_person
+//    //TODO http://localhost:8081/save_mythical_person
+//    @PostMapping("/save_mythical_person")
+//    public ResponseEntity.BodyBuilder save(@RequestBody Map<String, Object> map) {
+//        try {
+//            mythicalPersonService.addMythicalPerson(map);
+//            return ResponseEntity.status(HttpStatus.OK);
+//        } catch (Exception ex) {
+//            return ResponseEntity.status(HttpStatus.BAD_REQUEST);
+//        }
+//    }
+
     @PostMapping("/save_mythical_person")
-    public ResponseEntity.BodyBuilder save(@RequestBody Map<String, Object> map) {
+    public ResponseEntity<MythicalPersonDto> save(@RequestBody Map<String, Object> map) {
         try {
-            mythicalPersonService.addMythicalPerson(map);
-            return ResponseEntity.status(HttpStatus.OK);
+            MythicalPersonDto mythicalPersonDto = mythicalPersonService.addMythicalPerson(map);
+            return ResponseEntity.status(HttpStatus.CREATED).body(mythicalPersonDto);
         } catch (Exception ex) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST);
+            return ResponseEntity.badRequest().build();
         }
     }
 }
