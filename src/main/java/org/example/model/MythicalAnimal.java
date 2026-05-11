@@ -22,9 +22,9 @@ public class MythicalAnimal extends Entity {
 
     @Override
     public String toString() {
-        return "Name: " + getName() +
-                "Age: " + getAge() +
-                "Color: " + getColor()+
-                "Gender: " + getGender() ;
+        return "\nName: " + getName() +
+                "\nAge: " + getAge() +
+                "\nColor: " + getColor()+
+                "\nGender: " + getGender() ;
     }
 }

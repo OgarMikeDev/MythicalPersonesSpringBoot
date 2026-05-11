@@ -20,17 +20,17 @@ public class EntityRestController {
     /*
     TODO Запрос в Postman:
         {
-        "name" : "Океанская Посейдониха Зевсовна",
-        "age" : 1000000,
-        "isgod" : true,
-        "superpower" : "Делать и пить водичку",
-        "mythicalanimal" : {
-            "name" : "Водная псинка",
-            "age" : 123,
-            "color" : "Красный",
-            "gender" : "Женский"
-        }
-}
+            "name" : "Океанская Посейдониха Зевсовна",
+            "age" : 1000000,
+            "isgod" : true,
+            "superpower" : "Делать и пить водичку",
+            "mythicalanimal" : {
+                "name" : "Водная псинка",
+                "age" : 123,
+                "color" : "Красный",
+                "gender" : "Женский"
+             }
+         }
      */
     //TODO http://localhost:8080/save_mythical_person
     @PostMapping("/save_mythical_person")
