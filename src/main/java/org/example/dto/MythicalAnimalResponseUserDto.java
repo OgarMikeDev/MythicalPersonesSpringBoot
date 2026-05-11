@@ -1,6 +1,6 @@
 package org.example.dto;
 
-public class MythicalAnimalDto extends EntityDto {
+public class MythicalAnimalResponseUserDto extends EntityDto {
     private String color;
     private String gender;
 

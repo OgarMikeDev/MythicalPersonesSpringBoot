@@ -1,7 +1,7 @@
 package org.example.controllers;
 
-import org.example.dto.MythicalPersonDto;
-import org.example.model.MythicalPerson;
+import org.example.dto.MythicalPersonFullDto;
+import org.example.dto.MythicalPersonResponseUserDto;
 import org.example.services.MythicalPersonService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -46,10 +46,10 @@ public class EntityRestController {
 //    }
 
     @PostMapping("/save_mythical_person")
-    public ResponseEntity<MythicalPersonDto> save(@RequestBody Map<String, Object> map) {
+    public ResponseEntity<MythicalPersonFullDto> save(@RequestBody Map<String, Object> map) {
         try {
-            MythicalPersonDto mythicalPersonDto = mythicalPersonService.addMythicalPerson(map);
-            return ResponseEntity.status(HttpStatus.CREATED).body(mythicalPersonDto);
+            MythicalPersonFullDto mythicalPersonFullDto = mythicalPersonService.addMythicalPerson(map);
+            return ResponseEntity.status(HttpStatus.CREATED).body(mythicalPersonFullDto);
         } catch (Exception ex) {
             return ResponseEntity.badRequest().build();
         }

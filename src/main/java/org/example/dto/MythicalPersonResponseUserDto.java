@@ -1,6 +1,6 @@
 package org.example.dto;
 
-public class MythicalPersonDto extends EntityDto {
+public class MythicalPersonResponseUserDto extends EntityDto {
     private boolean isgod; //TODO Является ли Богом?
     private String superpower; //TODO Описание сверхспособности
 

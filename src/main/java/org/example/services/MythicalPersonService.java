@@ -1,7 +1,9 @@
 package org.example.services;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.example.dto.MythicalPersonDto;
+import org.example.dto.MythicalAnimalFullDto;
+import org.example.dto.MythicalPersonFullDto;
+import org.example.dto.MythicalPersonResponseUserDto;
 import org.example.model.MythicalPerson;
 import org.springframework.stereotype.Service;
 
@@ -30,7 +32,7 @@ public class MythicalPersonService {
 //        System.out.println(mythicalPerson + " добавлен");
 //    }
 
-    public MythicalPersonDto addMythicalPerson(Map<String, Object> map) throws Exception {
+    public MythicalPersonFullDto addMythicalPerson(Map<String, Object> map) throws Exception {
         /*
         TODO
          Для возможности преобразования
@@ -48,12 +50,20 @@ public class MythicalPersonService {
         return mapperPersonFromObjectToDto(mythicalPerson);
     }
 
-    public MythicalPersonDto mapperPersonFromObjectToDto(MythicalPerson mythicalPerson) {
-        MythicalPersonDto mythicalPersonDto = new MythicalPersonDto();
-        mythicalPersonDto.setName(mythicalPerson.getName());
-        mythicalPersonDto.setAge(mythicalPerson.getAge());
-        mythicalPersonDto.setIsgod(mythicalPerson.isIsgod());
-        mythicalPersonDto.setSuperpower(mythicalPerson.getSuperpower());
-        return mythicalPersonDto;
+    public MythicalPersonFullDto mapperPersonFromObjectToDto(MythicalPerson mythicalPerson) {
+        MythicalPersonFullDto mythicalPersonFullDto = new MythicalPersonFullDto();
+        mythicalPersonFullDto.setName(mythicalPerson.getName());
+        mythicalPersonFullDto.setAge(mythicalPerson.getAge());
+        mythicalPersonFullDto.setIsgod(mythicalPerson.isIsgod());
+        mythicalPersonFullDto.setSuperpower(mythicalPerson.getSuperpower());
+
+        MythicalAnimalFullDto mythicalAnimalFullDto =
+                new MythicalAnimalFullDto();
+        mythicalAnimalFullDto.setName(mythicalPerson.getMythicalanimal().getName());
+        mythicalAnimalFullDto.setAge(mythicalPerson.getMythicalanimal().getAge());
+        mythicalAnimalFullDto.setColor(mythicalPerson.getMythicalanimal().getColor());
+        mythicalAnimalFullDto.setGender(mythicalPerson.getMythicalanimal().getGender());
+        mythicalPersonFullDto.setMythicalanimal(mythicalAnimalFullDto);
+        return mythicalPersonFullDto;
     }
 }
