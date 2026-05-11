@@ -5,10 +5,9 @@ import org.example.dto.MythicalPersonResponseUserDto;
 import org.example.services.MythicalPersonService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -34,7 +33,7 @@ public class EntityRestController {
              }
          }
      */
-//    //TODO http://localhost:8081/save_mythical_person
+//    TODO http://localhost:8081/save_mythical_person
 //    @PostMapping("/save_mythical_person")
 //    public ResponseEntity.BodyBuilder save(@RequestBody Map<String, Object> map) {
 //        try {
@@ -53,5 +52,12 @@ public class EntityRestController {
         } catch (Exception ex) {
             return ResponseEntity.badRequest().build();
         }
+    }
+
+    //TODO http://localhost:8081/get_information_about_all_person
+    @GetMapping("/get_information_about_all_person")
+    public List<MythicalPersonResponseUserDto> getInformationAboutAllPerson() {
+        List<MythicalPersonResponseUserDto> mythicalPersonResponseUserDto = mythicalPersonService.getInformationAboutAllPerson();
+        return mythicalPersonResponseUserDto;
     }
 }
